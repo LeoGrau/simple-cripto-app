@@ -1,15 +1,15 @@
 <template>
-  <App/>
+  <cripto-table></cripto-table>
 </template>
 
 <script>
 // @ is an alias to /src
-import App from '@/App.vue'
+import CriptoTable from '@/components/cripto-table.vue'
 
 export default {
   name: 'Home',
   components: {
-    App
+    CriptoTable
   }
 }
 </script>

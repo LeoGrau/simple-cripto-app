@@ -1,17 +1,16 @@
 <template>
    <main id = "app">
     <cripto-header/>
-    <cripto-table/>
+    <router-view/>
   </main>
 </template>
 
 <script>
 import CriptoHeader from "@/components/cripto-header";
-import CriptoTable from "@/components/cripto-table"
 
 export default {
   name: "app",
-  components: { CriptoHeader, CriptoTable }
+  components: { CriptoHeader}
 };
 </script>
 
