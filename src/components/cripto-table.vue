@@ -1,24 +1,34 @@
 <template>
   <table>
     <thead>
-      <tr class="bg-gray-100 border-b-2 border-gray-400">
+      <tr class="bg-gray-100 border-gray-400">
         <th></th>
         <th><span>Ranking</span></th>
         <th>Nombre</th>
         <th>Precio</th>
         <th>Cap. de Mercado</th>
         <th>Variación 24hs</th>
+        <td class="hidden"></td>
       </tr>
     </thead>
     <tbody>
-      <tr class="border-b border-gray-200 hover:bg-orange-100">
-        <td>Data 1</td>
-        <td>Data 2</td>
-        <td>Data 3</td>
-        <td>Data 4</td>
-        <td>Data 5</td>
-        <td>Data 6</td>
-        <td class="hidden sm:block"></td>
+      <tr
+        v-for="asset in assets"
+        v-bind:key="asset.id"
+        class="border-b border-gray-200 hover:bg-orange-100"
+      >
+        <td>
+          <img
+            :src="`https://static.coincap.io/assets/icons/${asset.symbol.toLowerCase()}@2x.png`"
+            :alt="asset.name"
+          />
+        </td>
+        <td>{{ asset.name }}</td>
+        <td>{{ asset.rank }}</td>
+        <td>{{ asset.symbol }}</td>
+        <td>{{ asset.supply }}</td>
+        <td>{{ asset.marketCapUsd }}</td>
+        <td>{{ asset.volumeUsd24Hr }}</td>
       </tr>
     </tbody>
   </table>
@@ -36,4 +46,8 @@ export default {
 };
 </script>
 
-<style></style>
+<style scoped>
+thead {
+  display: auto;
+}
+</style>

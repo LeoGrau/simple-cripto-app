@@ -1,15 +1,28 @@
 <template>
-  <cripto-table></cripto-table>
+  <cripto-table v-bind:assets = "assets"></cripto-table>
 </template>
 
 <script>
 // @ is an alias to /src
-import CriptoTable from '@/components/cripto-table.vue'
+import api from "@/api.js";
+import CriptoTable from "@/components/cripto-table.vue";
 
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
-    CriptoTable
-  }
-}
+    CriptoTable,
+  },
+
+  data() {
+    {
+      return {
+        assets: []
+      };
+    }
+  },
+
+  created() {
+    api.getAssets().then(assets => this.assets = assets);
+  },
+};
 </script>

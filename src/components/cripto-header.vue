@@ -1,17 +1,19 @@
 <template>
   <header class="shadow w-screen">
-    <nav>
-      <nav class="flex items-center justify-between flex-wrap bg-green-400 p-6">
-        <div class="flex items-center flex-shrink-0 text-white mr-6">
-          <CriptoIcon class="mr-2" />
-          <span class="font-semibold text-xl tracking-tight">Cripto-App</span>
-        </div>
-        <div
-          class="hidden sm:block w-full blok flex-grow lg:flex lg:items-center lg:wauto"
-        >
-          <div class="text-sm lg:flex-grow"></div>
-        </div>
-      </nav>
+    <nav class="flex justify-between bg-green-400 p-6">
+      <div class="flex items-center flex-shrink-0 text-white mr-6">
+        <CriptoIcon class="mr-2" />
+        <span class="font-semibold text-xl tracking-tight">Cripto-App</span>
+      </div>
+      <div
+        class="hidden sm:block w-full blok flex-grow lg:flex lg:items-center lg:wauto"
+      >
+        <div class="text-sm lg:flex-grow"></div>
+      </div>
+      <ul class="flex items-end">
+        <router-link class = "mr-3 text-gray-200 font-semibold" to="/"> Home </router-link>
+        <router-link class = "mr-3 text-gray-200 font-semibold" to="/about"> About </router-link>
+      </ul>
     </nav>
   </header>
 </template>
@@ -26,5 +28,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
