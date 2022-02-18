@@ -1,5 +1,8 @@
 <template>
-  <cripto-table v-bind:assets = "assets"></cripto-table>
+  <main>
+    <bounce-loader :loading = "isLoading" :color = "`#68d391`" :size = "100"></bounce-loader>
+    <cripto-table v-bind:assets = "assets"/>
+  </main>
 </template>
 
 <script>
@@ -16,13 +19,15 @@ export default {
   data() {
     {
       return {
+        isLoading: false,
         assets: []
       };
     }
   },
 
   created() {
-    api.getAssets().then(assets => this.assets = assets);
+    this.isLoading = true;
+    api.getAssets().then(assets => this.assets = assets).finally(() => this.isLoading = false);
   },
 };
 </script>
