@@ -16,6 +16,16 @@ function getAssetHistory(coin_id) {
     return fetch(`${url}/assets/${coin_id}/history?interval=h1&start=${start}&end=${end}`).then(res => res.json()).then(res => res.data);
 }
 
+function getMarkets(coin_id) {
+    return fetch(`${url}/assets/${coin_id}/markets?limit=5`).then(res => res.json()).then(res => res.data);
+}
+
+function getExchange(exchange_id) {
+    return fetch(`${url}/exchanges/${exchange_id}`)
+    .then(res => res.json())
+    .then(res => res.data)
+}
+
 export default {
-    getAssets, getAsset, getAssetHistory
+    getAssets, getAsset, getAssetHistory, getMarkets, getExchange
 } 

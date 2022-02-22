@@ -1,7 +1,13 @@
 <template>
   <main>
-    <bounce-loader :loading = "isLoading" :color = "`#68d391`" :size = "100"></bounce-loader>
-    <cripto-table v-bind:assets = "assets"/>
+    <div class="flex justify-center">
+      <bounce-loader
+        :loading="isLoading"
+        :color="`#68d391`"
+        :size="100"
+      ></bounce-loader>
+    </div>
+    <cripto-table v-if="!isLoading" v-bind:assets="assets" />
   </main>
 </template>
 
@@ -20,14 +26,17 @@ export default {
     {
       return {
         isLoading: false,
-        assets: []
+        assets: [],
       };
     }
   },
 
   created() {
-    this.isLoading = true;
-    api.getAssets().then(assets => this.assets = assets).finally(() => this.isLoading = false);
+    this.isLoading = false;
+    api
+      .getAssets()
+      .then((assets) => (this.assets = assets))
+      .finally(() => (this.isLoading = false));
   },
 };
 </script>
