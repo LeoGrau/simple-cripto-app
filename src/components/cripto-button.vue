@@ -17,13 +17,11 @@
 <script>
 export default {
   name: "CriptoButton",
-  data() {
-    return {
-      isLoading: false
-    };
-  },
-  created() {
-    this.isLoading = false;
+  props: {
+    isLoading: {
+      type: Boolean,
+      default: false
+    }
   },
   methods: {
     clickButton() {
@@ -32,5 +30,3 @@ export default {
   },
 };
 </script>
-
-<style></style>

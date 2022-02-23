@@ -13,7 +13,7 @@ const percentFilter = function(value) {
     }
     else {
         // `${Number(value).toFixed(2)}`;
-        return numeral(value).format('0.000%')
+        return numeral(value).format('0.00%')
     }
 }
 

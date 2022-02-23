@@ -1,6 +1,6 @@
 <template>
   <main id="app">
-    <cripto-header />
+    <cripto-header :links = "links" />
     <router-view class="container px-5 sm:px-20 py-20" />
   </main>
 </template>
@@ -11,6 +11,24 @@ import CriptoHeader from "@/components/cripto-header";
 export default {
   name: "app",
   components: { CriptoHeader },
+  data() {
+    return {
+      links: [
+        {
+          title: "BTC",
+          to: { name: "coin-detail", params: { id: "bitcoin" } },
+        },
+        {
+          title: "ETH",
+          to: { name: "coin-detail", params: { id: "ethereum" } },
+        },
+        {
+          title: "XRP",
+          to: { name: "coin-detail", params: { id: "ripple" } },
+        },
+      ],
+    };
+  },
 };
 </script>
 
@@ -24,5 +42,3 @@ export default {
   font-size: auto;
 }
 </style>
-
-
